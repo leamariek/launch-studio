@@ -1,0 +1,14 @@
+{
+  "name": "launch-studio",
+  "owner": {
+    "name": "Lea Marie Korsawe",
+    "url": "https://x.com/leakorsawe"
+  },
+  "plugins": [
+    {
+      "name": "launch-studio",
+      "source": "./",
+      "description": "Launch films coded frame by frame: one continuous take, the product rebuilt in code from its real source, cut to music."
+    }
+  ]
+}

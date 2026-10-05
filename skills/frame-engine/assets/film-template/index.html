@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Launch Film</title>
+<style>
+  html, body { margin: 0; background: #000; overflow: hidden; }
+  canvas { display: block; }
+</style>
+</head>
+<body>
+<canvas id="film"></canvas>
+<script src="engine.js"></script>
+<script>
+// Template: one continuous take. Replace the world with the gesture chain from 04-board/chain.md.
+// Rules: draw() paints the full frame (opaque stage first), reads only t, keeps no state.
+(async () => {
+  const { P, tw, lerpRect, rrect, lift, flood, cursor, cursorPath, press, camera, view, screen, toScreen, line, ease } = E;
+
+  // Fonts come from the rebuild kit (03-brand/kit/fonts). Load every weight the film uses.
+  const faces = [
+    ['Display', '../03-brand/kit/fonts/display-500.woff2', 500],
+  ];
+  await Promise.all(faces.map(([f, u, w]) => new FontFace(f, `url(${u})`, { weight: String(w) }).load().then(ff => document.fonts.add(ff)).catch(() => {})));
+  await document.fonts.ready;
+
+  const STAGE = '#efe8dc', INK = '#17150f', ACCENT = '#f3cd52';
+  const cam = camera([{ t: 0, x: 0, y: 0, z: 1 }, { t: 1.2, x: 0, y: 0, z: 1 }, { t: 2.0, x: 0, y: 0, z: 1.6 }]);
+  const cur = cursorPath([{ t: 0, x: 260, y: 220 }, { t: 0.9, x: 20, y: 12 }, { t: 3, x: 20, y: 12 }]);
+  const CLICK = 1.0;
+
+  function draw(ctx, t) {
+    screen(ctx); ctx.fillStyle = STAGE; ctx.fillRect(0, 0, E.W, E.H);   // opaque stage every frame
+    const c = cam(t); view(ctx, c);
+    // a pill glides into a circle after the click (0.8 s glide), then floods the stage
+    const p = P(t, CLICK + 0.05, 0.8);
+    const R = lerpRect({ x: 0, y: 0, w: 280, h: 84, r: 42 }, { x: 0, y: 0, w: 84, h: 84, r: 42 }, p);
+    lift(ctx, 0.3, () => rrect(ctx, R), INK);
+    if (p < 0.5) line(ctx, 'Generate', 0, 12, t, -1, { size: 30, weight: 500, color: '#fff', align: 'center', out: CLICK + 0.1 });
+    const [sx, sy] = toScreen(c, 0, 0);
+    flood(ctx, sx, sy, P(t, 2.0, 0.4, ease.inOut), INK);
+    const [cx, cy] = cur(t); const [csx, csy] = toScreen(c, cx, cy);
+    if (t < 2.0) cursor(ctx, csx, csy, press(t, CLICK));
+  }
+
+  E.init({ canvas: document.getElementById('film'), width: 1920, height: 1080, fps: 60, draw, fonts: { display: 'Display' } });
+  window.__film = {
+    duration: 3.0, fps: 60, width: 1920, height: 1080,
+    ready: Promise.resolve(),
+    seek: t => E.frame(t, 1),
+    frame: (t, n) => E.frame(t, n),
+  };
+  E.frame(0);
+})();
+</script>
+</body>
+</html>
