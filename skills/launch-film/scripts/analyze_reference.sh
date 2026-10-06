@@ -22,7 +22,7 @@ fps=$(python3 -c "n,d='$rate'.split('/');print(round(int(n)/int(d),2))")
 
 # hard cuts: scene score above 0.3 (the same threshold the reference breakdowns use)
 cut_times=$(ffmpeg -hide_banner -i "$src" -vf "select='gt(scene,0.3)',showinfo" -an -f null - 2>&1 \
-  | grep -o 'pts_time:[0-9.]*' | cut -d: -f2 | awk '{printf "%.2f s, ", $1}' | sed 's/, $//')
+  | { grep -o 'pts_time:[0-9.]*' || true; } | cut -d: -f2 | awk '{printf "%.2f s, ", $1}' | sed 's/, $//')
 cuts=$( [ -z "$cut_times" ] && echo 0 || echo "$cut_times" | tr ',' '\n' | wc -l )
 
 # loudness (EBU R128): integrated and true peak
