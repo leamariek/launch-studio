@@ -1,11 +1,11 @@
 ---
 name: brand-intake
-description: Extracts a project's real design system (colors, typography, radii, spacing, shadows, motion curves, logo, fonts) from its code into brand.json, and builds the rebuild kit a coded launch film draws from: font files, verbatim copy, real data, map and chart geometry, and faithful canvas components of the product's UI, checked side by side against the live product. Use this whenever a launch video, motion piece, animated visual, or marketing asset must match an existing product's design, when the user points at a Tailwind config, CSS tokens, Figma file, or brand guide, or says "in our design" or "on-brand."
+description: Extracts a project's real design system (colors, typography, radii, spacing, shadows, motion curves, logo, fonts) from its code into brand.json, and builds the rebuild kit a coded launch video draws from: font files, verbatim copy, real data, map and chart geometry, and faithful canvas components of the product's UI, checked side by side against the live product. Use this whenever a launch video, motion piece, animated visual, or marketing asset must match an existing product's design, when the user points at a Tailwind config, CSS tokens, Figma file, or brand guide, or says "in our design" or "on-brand."
 ---
 
 # Brand Intake
 
-Your job is fidelity. The film must look like it was made by the product's own design team on their best day. You extract and rebuild; you do not invent.
+Your job is fidelity. The video must look like it was made by the product's own design team on their best day. You extract and rebuild; you do not invent.
 
 ## Step 1: Find the sources
 
@@ -55,15 +55,15 @@ Every value must trace to a source file. If a value doesn't exist in the project
 
 ## Step 3: Build the rebuild kit (`launch/03-brand/kit/`)
 
-The film draws the product in code (see `launch-film/references/reference-films.md`). The kit is what makes that drawing faithful instead of invented.
+The video draws the product in code (see `launch-film/references/reference-films.md`). The kit is what makes that drawing faithful instead of invented.
 
-- **Inventory first.** Read the UI code and list every component, motion and state with file:line (`inventory/*.md`): what it looks like, how it moves (trigger, values, duration, ease), what copy and data it shows. Mark what is live on the site and what is dead code; the film uses only what is live.
-- **Fonts.** The woff2 files the product actually uses, in `kit/fonts/` (check the license; OFL fonts from Google Fonts are fine). Every weight the film needs.
-- **Copy.** `kit/copy.json`: every string the film may show, verbatim, with its source file and line.
+- **Inventory first.** Read the UI code and list every component, motion and state with file:line (`inventory/*.md`): what it looks like, how it moves (trigger, values, duration, ease), what copy and data it shows. Mark what is live on the site and what is dead code; the video uses only what is live.
+- **Fonts.** The woff2 files the product actually uses, in `kit/fonts/` (check the license; OFL fonts from Google Fonts are fine). Every weight the video needs.
+- **Copy.** `kit/copy.json`: every string the video may show, verbatim, with its source file and line.
 - **Data.** `kit/data/*.json`: the real records behind lists, counts and statuses (for example programs, per-country counts, status keys), extracted by script, never by eye.
 - **Geometry.** `kit/geo/*`: SVG paths, viewBox and projection for maps and charts, straight from the source.
 - **Components.** `kit/components.js`: canvas draw functions for the product's UI parts (a button, a tab, a list row, a seal, a chat window), taking a state and a progress value, built from brand.json tokens and the inventory's exact values. Simplify only by leaving things out, never by changing them.
-- **Fidelity check.** Screenshot the real UI at 2x (Playwright) and render each component at the same size; put them side by side in `kit/fidelity.png` and fix every visible difference in colour, radius, type, spacing. Screenshots live in `kit/reference/` for this check only; they never appear in the film.
+- **Fidelity check.** Screenshot the real UI at 2x (Playwright) and render each component at the same size; put them side by side in `kit/fidelity.png` and fix every visible difference in colour, radius, type, spacing. Screenshots live in `kit/reference/` for this check only; they never appear in the video.
 
 ## Step 4: Verify
 

@@ -1,6 +1,6 @@
 # Motion Craft Standards
 
-Measured from the reference films (`launch-film/references/reference-films.md`). These separate the reference films from template work.
+Measured from the reference videos (`launch-film/references/reference-films.md`). These separate the reference videos from template work.
 
 ## Timing
 - **One glide curve for everything.** Morphs and camera share one ease and usually one duration (0.8 s). The shared curve is why shape changes read as one motion.

@@ -9,7 +9,7 @@
 
 ## Techniques
 - **The concrete swap.** Replace every abstraction with the thing itself: "productivity" → "four hours back every Friday."
-- **The contrast pair.** "Your data had answers. Now it has a voice." Use once per film, not every beat.
+- **The contrast pair.** "Your data had answers. Now it has a voice." Use once per video, not every beat.
 - **The unfinished line.** Let the UI finish the sentence: super reads "Ask it anything," UI types the question.
 - **The callback.** The end line echoes a word from the opening beat.
 - **Number discipline.** Numerals on screen ("3×", "40%"), with the unit. Round honestly. Never "up to" unless the source says so.

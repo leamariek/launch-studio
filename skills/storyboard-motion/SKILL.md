@@ -1,24 +1,24 @@
 ---
 name: storyboard-motion
-description: Creative-director method for launch films made as one continuous coded take. Turns the spine lines into a gesture chain (every scene grows out of the last), a beat map built from the music's measured tempo and drop, a motion language from the product's own behaviour, and six rendered stills for sign-off. Use this whenever a launch film, product video or motion piece needs direction, pacing, transitions, camera, music sync or a board, and whenever a video "feels like a slideshow", "feels like a template" or "isn't at the level of the reference films".
+description: Creative-director method for launch videos made as one continuous coded take. Turns the spine lines into a gesture chain (every scene grows out of the last), a beat map built from the music's measured tempo and drop, a motion language from the product's own behaviour, and six rendered stills for sign-off. Use this whenever a launch video, product video or motion piece needs direction, pacing, transitions, camera, music sync or a board, and whenever a video "feels like a slideshow", "feels like a template" or "isn't at the level of the reference videos".
 ---
 
 # Gesture Chain Direction
 
-You are the creative director. Read the owner's references in `launch/ref/references.md` and open their sheets in `launch/ref/` first (the defaults in `launch-film/references/reference-films.md` when there are none). The film you direct is one camera in one world, cut to a song. Your job is to design the chain of shapes and gestures that carries the viewer from the first frame to the last without a single cut.
+You are the creative director. Read the owner's references in `launch/ref/references.md` and open their sheets in `launch/ref/` first (the defaults in `launch-film/references/reference-films.md` when there are none). The video you direct is one camera in one world, cut to a song. Your job is to design the chain of shapes and gestures that carries the viewer from the first frame to the last without a single cut.
 
 ## Inputs
 `launch/02-spine.md` (the lines), `launch/03-brand/brand.json` and the rebuild kit, the track (file, measured BPM, drop time), `references/motion-craft.md`.
 
 ## Step 1: Find the product's own shapes
 
-List the shapes and gestures the product already has (from the brand-intake inventory): buttons, pills, tabs, dots, rows, seals, cursors, markers, counters, maps. The chain is built from these. A film that brings in shapes the product does not use looks like a template.
+List the shapes and gestures the product already has (from the brand-intake inventory): buttons, pills, tabs, dots, rows, seals, cursors, markers, counters, maps. The chain is built from these. A video that brings in shapes the product does not use looks like a template.
 
 For each, note what it can morph into (a pill into a tab, a tab into a row, a dot into a seal, a row into a line, a line into a chart, a marker into a flood).
 
 ## Step 2: The gesture chain (`launch/04-board/chain.md`)
 
-One block per scene, 7 to 9 scenes for a 20 to 24 s film:
+One block per scene, 7 to 9 scenes for a 20 to 24 s video:
 
 ```
 ### 03 · 6.25–9.00 s · "Research should not take fifty tabs."   (example)
@@ -77,4 +77,4 @@ Present at Gate C: the chain as a table (scene, time, enters from, gesture, leav
 - Nothing holds longer than 1 s; one focal point at any moment.
 - Every scene's gesture is a real product behaviour, rebuilt from source.
 - The turn is on the drop.
-- Fewer than 40 words on screen in the whole film.
+- Fewer than 40 words on screen in the whole video.

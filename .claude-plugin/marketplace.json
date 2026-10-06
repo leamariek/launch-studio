@@ -8,10 +8,10 @@
     {
       "name": "launch-studio",
       "source": "./",
-      "description": "Launch films coded frame by frame: one continuous take, the product rebuilt in code from its real source, cut to music."
+      "description": "Launch videos coded frame by frame: one continuous take, the product rebuilt in code from its real source, cut to music."
     }
   ],
   "metadata": {
-    "description": "Launch Studio: launch films written in code with Claude Code agents."
+    "description": "Launch Studio: launch videos written in code with Claude Code agents."
   }
 }

@@ -1,14 +1,14 @@
-# Reference Films: The Standard
+# Reference Videos: The Standard
 
-These three public posts on X are the default bar, used when the owner names no references of their own. Their breakdowns also show the format every breakdown in phase R follows. The films belong to their authors; watch them on X and keep your own study copies local.
+These three public posts on X are the default bar, used when the owner names no references of their own. Their breakdowns also show the format every breakdown in phase R follows. The videos belong to their authors; watch them on X and keep your own study copies local.
 
-| Film | Post | Length | Format | Hard cuts | Loudness |
+| Video | Post | Length | Format | Hard cuts | Loudness |
 |---|---|---|---|---|---|
 | Skydive launch (shiri) | x.com/shiri_shh/status/2103882024620847348 | 20.0 s | 1920x1080, 60 fps | 1 | -12.1 LUFS |
 | Motion template (twoclipping) | x.com/twoclipping/status/2104674464868762046 | 22.1 s | 1440x1440, 60 fps | 0 | -14.0 LUFS |
-| AI lyric film (mexicat) | x.com/_mexicat/status/2103108369569726802 | 156.7 s | 1280x720, 60 fps | 62, all inside four strobe bursts | -15.5 LUFS |
+| AI lyric video (mexicat) | x.com/_mexicat/status/2103108369569726802 | 156.7 s | 1280x720, 60 fps | 62, all inside four strobe bursts | -15.5 LUFS |
 
-Cut counts: ffmpeg scene score above 0.3. Everything else in all three films is continuous motion.
+Cut counts: ffmpeg scene score above 0.3. Everything else in all three videos is continuous motion.
 
 ## Reference sheets
 
@@ -30,7 +30,7 @@ Open them before any creative decision.
 6. **Short and dense.** 20 to 22 s for a launch. 7 to 9 ideas, about 2.5 s each. Holds never longer than about 1 s: something always moves, but there is only one focal point.
 7. **A system that repeats.** A recurring motif (the prompt box, the tab, the dot), one accent colour, one type family, the same easing everywhere. The repetition is what makes it feel designed rather than assembled.
 
-## Film 1: Skydive (shiri_shh), 20 s
+## Video 1: Skydive (shiri_shh), 20 s
 
 Story in lines, about 2.5 s each:
 1. A short line in a dark window. The window collapses into a glowing horizontal line (CRT-off), the line shrinks to a dot, black.
@@ -49,7 +49,7 @@ Craft details:
 - UI is simplified but exact: avatar, name, status line, bubble colours, file chips. Everything readable at 1080p.
 - Backgrounds alternate dark, paper, sky, paper, sunset, black, paper, sunset: a rhythm of worlds.
 
-## Film 2: Motion template (twoclipping), 22 s, one take
+## Video 2: Motion template (twoclipping), 22 s, one take
 
 The author published the full prompt with the post; read it there, it is the clearest statement of the method. In short: a square 22 s loop at 60 fps, 2D only, one continuous take where every scene grows out of the last and every gesture carries the camera into the next world. Every morph glides for 0.8 s on `cubic-bezier(.45,0,.15,1)` and the camera zoom rides the same curve; content dissolves in the back half of each glide; one gesture per scene. Hard cuts, bouncy springs, particles, glows, zooming in and straight back out, and holds over 1 s are banned. The press lands on the song's drop.
 
@@ -67,7 +67,7 @@ Gotchas: a handoff between two drawings only works once the first has fully land
 
 Look: warm light stage (`#f3f3f0` to `#e3e3de`), black UI, one accent, the real macOS pointer, soft layered shadows that grow with the shape's height.
 
-## Film 3: Lyric film (mexicat), 157 s
+## Video 3: Lyric video (mexicat), 157 s
 
 A music video: each sung line gets its own visual world, and the words of the line are the hero of that world.
 - Words live in space: typed into a recurring prompt box, bent around a black hole, laid on a warped grid, stamped onto a form, running on an odometer counter.
@@ -78,8 +78,8 @@ A music video: each sung line gets its own visual world, and the words of the li
 
 ## Mapping the standard to your product
 
-Before the spine, list what the product already has that these films build on. Everything comes from its code and data (the brand-intake inventory in `launch/03-brand/inventory/`):
-- **The motif.** A shape the product itself uses that can carry the chain: a tab, a pill, a prompt box, a card, a dot. It plays the role of the generate button, the dots and the play triangle in film 2.
+Before the spine, list what the product already has that these videos build on. Everything comes from its code and data (the brand-intake inventory in `launch/03-brand/inventory/`):
+- **The motif.** A shape the product itself uses that can carry the chain: a tab, a pill, a prompt box, a card, a dot. It plays the role of the generate button, the dots and the play triangle in video 2.
 - **The accent.** The product's own emphasis device (a marker, a colour, a weight) as the single accent.
 - **The signature motion.** An ease, an overshoot or a stamp the product documents in its code.
 - **The exchange.** A real input and result (a query and its answer, a form and its outcome) as a ready-made chat gesture.

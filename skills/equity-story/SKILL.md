@@ -1,11 +1,11 @@
 ---
 name: equity-story
-description: Senior copywriter and brand strategist method for product launches. Investigates a product in depth (what it does, who it is for, why it was built, why now, what it makes possible) and turns that into an equity story, a launch film script, on-screen supers, voiceover, and headline lines, all in sharp US-native English. Use this whenever the user needs launch copy, a product narrative, a manifesto, a positioning statement, a pitch or investor story, a video script, taglines, or wants to explain "why this product matters," including for web apps, features, SaaS, platforms, or company milestones, even if they only ask for "a few words for the launch."
+description: Senior copywriter and brand strategist method for product launches. Investigates a product in depth (what it does, who it is for, why it was built, why now, what it makes possible) and turns that into an equity story, a launch video script, on-screen supers, voiceover, and headline lines, all in sharp US-native English. Use this whenever the user needs launch copy, a product narrative, a manifesto, a positioning statement, a pitch or investor story, a video script, taglines, or wants to explain "why this product matters," including for web apps, features, SaaS, platforms, or company milestones, even if they only ask for "a few words for the launch."
 ---
 
 # Equity Story
 
-An equity story is the argument for why this product deserves to exist and will win. Not a feature list. It gives an investor a reason to believe, a customer a reason to switch, and a team a reason to stay. The film is one expression of it; the story has to be true and strong on paper first.
+An equity story is the argument for why this product deserves to exist and will win. Not a feature list. It gives an investor a reason to believe, a customer a reason to switch, and a team a reason to stay. The video is one expression of it; the story has to be true and strong on paper first.
 
 You work like a senior writer at a top brand studio: investigate first, write second, cut third.
 
@@ -13,7 +13,7 @@ You work like a senior writer at a top brand studio: investigate first, write se
 
 Read everything available before asking anything: the codebase (routes, data models, the README, commit history for origin clues), the live product, landing page, docs, changelog, deck, support tickets, and reviews. Use the product yourself if you can. Then fill the dossier using `references/dossier-template.md`.
 
-The dossier answers eight questions with evidence. Each answer cites a source (file path, URL, quote, or "user, intake"). Anything unsourced goes in "Unverified" and cannot appear in the film.
+The dossier answers eight questions with evidence. Each answer cites a source (file path, URL, quote, or "user, intake"). Anything unsourced goes in "Unverified" and cannot appear in the video.
 
 1. **What is it, literally?** One sentence a smart 14-year-old understands. No adjectives.
 2. **What does it do, mechanically?** The three to five core jobs, traced to real screens or endpoints.
@@ -25,7 +25,7 @@ The dossier answers eight questions with evidence. Each answer cites a source (f
 8. **Why will it win?** The moat or the wedge: data, workflow lock-in, taste, distribution, network effect, speed, cost structure. Be honest; if it's weak, say so.
 
 End the dossier with:
-- **The tension:** the single conflict the film resolves (old world vs. new world, stated in one line each).
+- **The tension:** the single conflict the video resolves (old world vs. new world, stated in one line each).
 - **Proof inventory:** every usable fact, labeled public or confidential.
 - **Red flags:** claims the team wants to make that the evidence does not support.
 
@@ -37,15 +37,15 @@ Pick one architecture from `references/story-architectures.md` and justify the c
 
 1. **The one-liner.** Under 12 words. What it is plus why it matters.
 2. **The equity thesis.** Three sentences: the shift in the world, the product's unique position in that shift, the size of what opens up.
-3. **The manifesto.** 120 to 180 words, prose, the story told in full at emotional height. This is the source text the film is cut from.
-4. **Three pillars.** Each is a claim plus its proof from the dossier. Pillars are what the film's acts are built on.
-5. **The line.** The end-card line the film lands on. Write at least 20 candidates in `alt-lines.md`, then pick three finalists with a one-line rationale each, and recommend one.
+3. **The manifesto.** 120 to 180 words, prose, the story told in full at emotional height. This is the source text the video is cut from.
+4. **Three pillars.** Each is a claim plus its proof from the dossier. Pillars are what the video's acts are built on.
+5. **The line.** The end-card line the video lands on. Write at least 20 candidates in `alt-lines.md`, then pick three finalists with a one-line rationale each, and recommend one.
 
 ## Phase 3: The spine (output: `launch/02-spine.md`)
 
-The film is one continuous coded take cut to music (see `launch-film/references/reference-films.md`). Words are not captions over footage; they are part of the picture, few and large. Write the spine with the creative director, using `references/script-format.md`:
+The video is one continuous coded take cut to music (see `launch-film/references/reference-films.md`). Words are not captions over footage; they are part of the picture, few and large. Write the spine with the creative director, using `references/script-format.md`:
 
-- **7 to 9 lines**, one per scene, 2 to 6 words each, fewer than 40 words on screen in the whole film. The product's own words first: a line that already exists on the site or in the app beats a new one.
+- **7 to 9 lines**, one per scene, 2 to 6 words each, fewer than 40 words on screen in the whole video. The product's own words first: a line that already exists on the site or in the app beats a new one.
 - **Each line is paired with the gesture that proves it**: the real product behaviour the scene shows (a click, a collapse, a typed query, a stamp). "Show, then say" still holds: the line adds meaning the gesture cannot.
 - **The turn** is a gesture, not a sentence, and it lands on the music's drop.
 - **The ending** is the product's call to action or the first frame again.
@@ -61,7 +61,7 @@ Write in US-native English at the level of the best tech launch copy. Read `refe
 - Short sentences carry weight. Fragments are allowed. Rhythm matters: vary length, land on the stress.
 - Banned: leverage, seamless, revolutionize, unlock, empower, game-changer, cutting-edge, next-generation, supercharge, elevate, "in today's fast-paced world," "introducing the future of," and any em-dash-stacked triplet of abstractions.
 - No claim without proof. No superlative without a benchmark.
-- Match the brand's own register. Read the product's existing UI copy and landing page; the film should sound like the product's best day, not like a different company.
+- Match the brand's own register. Read the product's existing UI copy and landing page; the video should sound like the product's best day, not like a different company.
 
 ## Self-critique before Gate B
 
