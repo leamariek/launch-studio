@@ -34,11 +34,11 @@ Seven skills: `launch-film` (orchestrator, references, house rules), `equity-sto
 ## The pipeline
 
 ```
-0 Intake -> 1 Dossier -> 2 Spine -> 3 Rebuild kit -> 4 Beat map + 6 stills -> 5 Build -> 6 Render + QA -> 7 Review
-            [GATE A]     [GATE B]                    [GATE C]                                          [GATE D]
+0 Intake -> R References -> 1 Dossier -> 2 Spine -> 3 Rebuild kit -> 4 Beat map + 6 stills -> 5 Build -> 6 Render + QA -> 7 Review
+            [GATE R]        [GATE A]     [GATE B]                    [GATE C]                                          [GATE D]
 ```
 
-You sign off at four gates: the facts, the spine, six stills rendered by the film's own code, and the final review. Gate C is the one that matters most. Direction gets agreed on real frames before anything is rendered in full.
+You sign off at five gates: your references, the facts, the spine, six stills rendered by the film's own code, and the final review. Gate C is the one that matters most. Direction gets agreed on real frames before anything is rendered in full.
 
 ## The rules it holds to
 
@@ -47,7 +47,7 @@ You sign off at four gates: the facts, the spine, six stills rendered by the fil
 3. **Truth.** Every word and number on screen traces to the product or a cited source.
 4. **Music sets the clock.** The track is composed on the film's bars, and the key gesture lands on the drop.
 
-The bar is three public launch films on X, broken down frame by frame in [`reference-films.md`](skills/launch-film/references/reference-films.md).
+The bar is your own references. Before any copy is written, the studio asks for two or three launch films you want to stand next to, as links to posts on X or as video files. It downloads each one, measures length, format, hard cuts and loudness, builds contact sheets and writes a frame-by-frame breakdown. Every later decision and the final review are judged against them. If you have none, it uses three public launch films broken down in [`reference-films.md`](skills/launch-film/references/reference-films.md).
 
 ## House rules
 
@@ -55,7 +55,7 @@ Every team has its own taste. Copy [`house-rules.example.md`](skills/launch-film
 
 ## Requirements
 
-Node 18+, Playwright (project install or `PW_CORE`), Chrome, ffmpeg, and Python 3 with numpy.
+Node 18+, Playwright (project install or `PW_CORE`), Chrome, ffmpeg, Python 3 with numpy, and yt-dlp to download reference films from links.
 
 ## Project layout
 
@@ -70,7 +70,7 @@ launch/
   03-brand/  brand.json, inventory/, kit/ (fonts, copy.json, data/, geo/, components.js, fidelity.png, specimen.png)
   04-board/  chain.md, beats.json, track.json, motion-language.md, stills/
   film/      index.html, engine.js, audio/ (track, sfx, cues.json, mix.wav)
-  ref/       your local study copies and contact sheets of the reference films
+  ref/       references.md, a breakdown and a facts file per reference film, contact sheets, local study copies
   renders/   draft.mp4, final.mp4, contact.jpg
   05-review.md
 ```

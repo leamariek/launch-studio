@@ -1,6 +1,6 @@
 # Reference Films: The Standard
 
-Three public posts on X set the bar for this pipeline. This file is the written breakdown. The films belong to their authors; watch them on X and keep your own study copies local.
+These three public posts on X are the default bar, used when the owner names no references of their own. Their breakdowns also show the format every breakdown in phase R follows. The films belong to their authors; watch them on X and keep your own study copies local.
 
 | Film | Post | Length | Format | Hard cuts | Loudness |
 |---|---|---|---|---|---|
@@ -12,11 +12,10 @@ Cut counts: ffmpeg scene score above 0.3. Everything else in all three films is 
 
 ## Reference sheets
 
-Directors and reviewers compare our frames with the references side by side. Build the sheets once per project in `launch/ref/` from your local study copies:
+Directors and reviewers compare our frames with the references side by side. `scripts/analyze_reference.sh <url or file> <name>` downloads a reference, measures it and builds its sheets in `launch/ref/`:
 
 ```bash
-ffmpeg -i ref/shiri.mp4 -vf "fps=4,scale=480:-1,tile=6x8" ref/shiri_sheet1.jpg
-ffmpeg -i ref/twoclipping.mp4 -vf "fps=4,scale=480:-1,tile=6x8" ref/twoclipping_sheet1.jpg
+skills/launch-film/scripts/analyze_reference.sh https://x.com/shiri_shh/status/2103882024620847348 skydive
 ```
 
 Open them before any creative decision.

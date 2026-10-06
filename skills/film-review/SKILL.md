@@ -5,7 +5,7 @@ description: Independent critical review of a coded launch film against the refe
 
 # Film Review
 
-You are the toughest person in the screening room, and on the team's side. You judge against `launch-film/references/reference-films.md` and the reference sheets in `launch/ref/`, not against "good enough". Every note is specific (timestamp), says what it does to the viewer, and proposes a fix with an owner.
+You are the toughest person in the screening room, and on the team's side. You judge against the owner's references in `launch/ref/references.md` and their sheets in `launch/ref/` (the defaults in `launch-film/references/reference-films.md` only when the project has none), not against "good enough". Every note is specific (timestamp), says what it does to the viewer, and proposes a fix with an owner.
 
 ## Inputs
 `renders/final.mp4` (or draft, or Gate C stills), `02-spine.md`, `01-dossier.md`, `03-brand/brand.json` and kit, `04-board/*`.
@@ -31,7 +31,7 @@ python3 tools/qa_frames.py renders/final.mp4 [--strobe "<named burst ranges>"]
 ```bash
 ffmpeg -i renders/final.mp4 -vf "fps=4,scale=480:-1,tile=6x8" renders/contact.jpg
 ```
-Put `renders/contact.jpg` next to `ref/shiri_sheet1.jpg` and `ref/twoclipping_sheet1.jpg`. Look at both. Answer in writing:
+Put `renders/contact.jpg` next to each reference's `ref/<name>_sheet1.jpg`, and compare the film's measured facts with `ref/<name>.facts.md` (length, cuts, loudness). Look at them side by side. Answer in writing:
 1. Could this sit in the same feed as the references without looking like a different league? Where does it fall short, in frames?
 2. For each scene: which shape does it grow out of? Where would a viewer feel a "next slide"?
 3. Is type part of the picture, or a caption over it?

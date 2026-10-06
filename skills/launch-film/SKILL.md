@@ -6,7 +6,7 @@ description: End-to-end pipeline for studio-grade product launch films coded fra
 # Launch Film: Pipeline Orchestrator
 
 Read these two files before anything else:
-1. `references/reference-films.md`: the standard. Three public launch films broken down frame by frame, and how to build contact sheets of them for side-by-side review.
+1. The references: `launch/ref/references.md` in the project once phase R has run, else `references/reference-films.md`. References are the standard every film is judged against. The default file holds three public launch films broken down frame by frame and shows the format every breakdown follows.
 2. The house rules: `launch/house-rules.md` in the project if it exists, else `references/house-rules.example.md`. House rules are the owner's rules from real feedback, and they override every default here. When the owner gives feedback that applies beyond this film, add it to `launch/house-rules.md`.
 
 You are the executive producer. You run the pipeline, enforce the gates and protect the four non-negotiables. Delegate phases to the agents when subagents are available.
@@ -23,6 +23,7 @@ You are the executive producer. You run the pipeline, enforce the gates and prot
 | # | Phase | Owner | Skill | Output | Gate |
 |---|---|---|---|---|---|
 | 0 | Intake | you | this file | `launch/00-intake.md` | none |
+| R | References: download, measure and break down the owner's reference films | creative-director | this file | `launch/ref/*` | **R: the bar** |
 | 1 | Dossier | story-strategist | equity-story | `launch/01-dossier.md` | **A: facts** |
 | 2 | Spine: the lines and the gesture chain in words | story-strategist + creative-director | equity-story, storyboard-motion | `launch/02-spine.md` | **B: spine** |
 | 3 | Rebuild kit: tokens, copy, data, geometry, coded components | brand-steward | brand-intake | `launch/03-brand/*` | none |
@@ -37,12 +38,24 @@ At each gate, show the artifact, three lines on the decisions, and the open ques
 
 ## Phase 0: Intake
 
-Pre-fill from the repo, live site and earlier docs. Ask only what is genuinely open, in one message:
+Pre-fill from the repo, live site and earlier docs. Ask only what is genuinely open, in one message. Always ask the first question, even when everything else is pre-filled:
+0. **Reference films.** Two or three launch films the owner wants this one to stand next to: links to posts on X (or YouTube, Vimeo, a site) or video files. Ask what they like about each one (the pace, the type, the transitions, the sound). If the owner has none, offer the three defaults in `references/reference-films.md` and say so in the intake.
 1. Product source (repo path, live URL, data files).
 2. The music: by default we compose it in code on the film's clock (`frame-engine/scripts/compose_track.py`), so the drop, the silences and every hit land exactly. A licensed song is the exception, used only when the owner supplies one.
 3. The one action after the film (sign up, try the demo, open the app, share).
 4. Format: default 20 to 24 s, 1920x1080 at 60 fps for X. Square 1440x1440 or 9:16 only when ordered, and then as a recomposition.
 5. Guardrails: words, claims or marks that are off-limits.
+
+## Phase R: References
+
+The film is only as good as the bar it is held to, so the bar comes from the owner, measured, before any copy or direction.
+
+1. **Get a local study copy of each reference.** For a link, run `scripts/analyze_reference.sh <url> <name>`; it downloads the video with yt-dlp. For a file, pass the path. Study copies stay in `launch/ref/`, private to the project: they never go into the film, the repo or a post.
+2. **Measure.** The same script writes `launch/ref/<name>.facts.md` (length, resolution, frame rate, every hard cut with its time, integrated loudness and true peak) and the sheets: `<name>_sheet1.jpg` (4 frames per second) and dense sheets at 12 frames per second for the fast passages.
+3. **Break each one down** in `launch/ref/<name>.md`, in the format of `references/reference-films.md`: the story in lines with their timing, how each scene hands over to the next, the type (size, how words enter, the accent), the camera, the sound and where the drop lands, the look (palette, faces, motifs). Look at the sheets; never describe a film you have not looked at.
+4. **Write `launch/ref/references.md`:** a table of the references with their measured facts, what all of them do (the approach), what the owner said they like, and the five moves this film will borrow.
+
+Gate R: show `references.md` and one sheet per film. The owner confirms the bar before phase 1. From here on, every agent judges against `launch/ref/references.md` and its sheets.
 
 ## Formats and defaults
 

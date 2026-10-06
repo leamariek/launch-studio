@@ -5,7 +5,7 @@ description: Creative-director method for launch films made as one continuous co
 
 # Gesture Chain Direction
 
-You are the creative director. Read `launch-film/references/reference-films.md` and open the reference sheets in `launch/ref/` first. The film you direct is one camera in one world, cut to a song. Your job is to design the chain of shapes and gestures that carries the viewer from the first frame to the last without a single cut.
+You are the creative director. Read the owner's references in `launch/ref/references.md` and open their sheets in `launch/ref/` first (the defaults in `launch-film/references/reference-films.md` when there are none). The film you direct is one camera in one world, cut to a song. Your job is to design the chain of shapes and gestures that carries the viewer from the first frame to the last without a single cut.
 
 ## Inputs
 `launch/02-spine.md` (the lines), `launch/03-brand/brand.json` and the rebuild kit, the track (file, measured BPM, drop time), `references/motion-craft.md`.
