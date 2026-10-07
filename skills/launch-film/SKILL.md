@@ -27,12 +27,12 @@ You are the executive producer. You run the pipeline, enforce the gates and prot
 | 1 | Dossier | story-strategist | equity-story | `launch/01-dossier.md` | **A: facts** |
 | 2 | Spine: the lines and the gesture chain in words | story-strategist + creative-director | equity-story, storyboard-motion | `launch/02-spine.md` | **B: spine** |
 | 3 | Rebuild kit: tokens, copy, data, geometry, coded components | brand-steward | brand-intake | `launch/03-brand/*` | none |
-| 4 | Beat map + six stills rendered from the real engine | creative-director + motion-engineer | storyboard-motion, frame-engine | `launch/04-board/*` | **C: stills** |
+| 4 | Beat map, six stills and a clip of the hardest transition, all rendered from the real engine | creative-director + motion-engineer | storyboard-motion, frame-engine | `launch/04-board/*` | **C: stills** |
 | 5 | Build the full take | motion-engineer | frame-engine | `launch/film/*` | none |
 | 6 | Render + QA | motion-engineer | frame-engine | `launch/renders/*` | none |
 | 7 | Review against the references | film-critic | film-review | `launch/05-review.md` | **D: ship / revise** |
 
-Phase 3 runs in parallel with phases 1 and 2. Gate C is the most important: six real stills (rendered by the video's own code, not mockups) plus the beat map, before any full render. This is where direction is agreed, not after a render.
+Phase 3 runs in parallel with phases 1 and 2. Gate C is the most important: six real stills (rendered by the video's own code, not mockups), the beat map and a 2 to 3 second clip of the trickiest transition, rendered as a range at full frame rate and motion blur with its sound. The stills show the direction, and the clip shows timing and continuity, all before any full render. This is where direction is agreed, not after a render.
 
 At each gate, show the artifact, three lines on the decisions, and the open questions. Stop until the owner approves or edits. "Run it through" skips the stop, never the artifact.
 

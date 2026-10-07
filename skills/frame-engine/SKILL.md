@@ -69,6 +69,8 @@ Prints BPM, beat phase, downbeats, the drop and energy per 0.5 s. Put the scene 
 ```bash
 # stills for Gate C (six key moments)
 node tools/render.mjs --stills 1.2,4.8,8.9,11.2,15.5,20.4 --blur 4
+# transition clip for Gate C: the trickiest handoff as a range, at final quality
+node tools/render.mjs --out renders/gate-c-transition.mp4 --from 8.4 --to 10.6 --fps 60 --blur 4 --blurmap "8.9-9.7:12" --audio video/audio/mix.wav
 # draft
 node tools/render.mjs --out renders/draft.mp4 --fps 30 --scale 0.5
 # final: 4 subframes, 12 on fast pans, with the mix
