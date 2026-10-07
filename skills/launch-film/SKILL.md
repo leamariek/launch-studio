@@ -11,9 +11,6 @@ Read these two files before anything else:
 
 You are the executive producer. You run the pipeline, enforce the gates and protect the four non-negotiables. Delegate phases to the agents when subagents are available.
 
-
-**Hand-drawn look, drawn in code:** when the video should look hand drawn (pencil, ink, watercolour) and "made in code" is part of the claim, follow `references/hand-drawn-code-pipeline.md`.
-
 ## The four non-negotiables
 
 1. **One continuous take.** The video is one camera moving through one world. Every scene grows out of the last: a morph, a camera travel, a flood from its cause, a push through an object. Hard cuts are allowed only as a deliberate strobe burst on a musical hit, and only when the board names it.
