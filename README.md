@@ -53,6 +53,10 @@ The bar is your own references. Before any copy is written, the studio asks for 
 
 Every team has its own taste. Copy [`house-rules.example.md`](skills/launch-film/references/house-rules.example.md) to `launch/house-rules.md` in your project and edit it. The pipeline reads it before every video, and every rule in it overrides the defaults. The example holds the rules from the videos this plugin was built on, each one learned from a real draft that missed.
 
+## Hand-drawn videos
+
+`skills/hand-drawn/` makes videos that look drawn with pencil, hatching and watercolor on toned paper, while every pixel is drawn by code. It fits a reference drawing into strokes, ink, washes and paper on the GPU and renders the draw-on in WebGL2. The fitter needs an NVIDIA GPU. The demo draws Schönbrunn Palace in Vienna.
+
 ## Requirements
 
 Node 18+, Playwright (project install or `PW_CORE`), Chrome, ffmpeg, Python 3 with numpy, and yt-dlp to download reference videos from links.

@@ -1,0 +1,5 @@
+demo/build/
+demo/renders/*
+!demo/renders/demo.mp4
+!demo/renders/demo_11.00.png
+__pycache__/

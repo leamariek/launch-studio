@@ -1,0 +1,41 @@
+<!doctype html>
+<html><head><meta charset="utf-8"><title>InkWash jobs</title></head><body><canvas id="c" width="16" height="16"></canvas>
+<script type="module">
+// Fitting passes through the real renderer: each job draws a drawing.json (optionally a debug pass) into an offscreen
+// target and returns the pixels (sRGB, rows bottom-up as gl.readPixels returns them), base64.
+import { createInkWash } from '../engine/inkwash.js';
+const gl = document.getElementById('c').getContext('webgl2', { antialias: false, alpha: true, premultipliedAlpha: true, stencil: true });
+const dbg = gl.getExtension('WEBGL_debug_renderer_info');
+window.renderer = dbg ? gl.getParameter(dbg.UNMASKED_RENDERER_WEBGL) : gl.getParameter(gl.RENDERER);
+window.runJob = async (job) => {
+  const D = await (await fetch(job.data, { cache: 'no-store' })).json();
+  if (job.override) Object.assign(D, job.override);
+  const [W, H] = D.size;
+  const tex = gl.createTexture(); gl.bindTexture(gl.TEXTURE_2D, tex);
+  gl.texImage2D(gl.TEXTURE_2D, 0, gl.RGBA8, W, H, 0, gl.RGBA, gl.UNSIGNED_BYTE, null);
+  const fb = gl.createFramebuffer(); gl.bindFramebuffer(gl.FRAMEBUFFER, fb);
+  gl.framebufferTexture2D(gl.FRAMEBUFFER, gl.COLOR_ATTACHMENT0, gl.TEXTURE_2D, tex, 0);
+  // field layers unmix against a background drawn by code: job.bgData is that drawing (same size)
+  let bg = null, bgInk = null, bgFb = null;
+  if (job.bgData) {
+    const B = await (await fetch(job.bgData, { cache: 'no-store' })).json();
+    const bt = gl.createTexture(); gl.bindTexture(gl.TEXTURE_2D, bt);
+    gl.texImage2D(gl.TEXTURE_2D, 0, gl.RGBA8, B.size[0], B.size[1], 0, gl.RGBA, gl.UNSIGNED_BYTE, null);
+    gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MIN_FILTER, gl.LINEAR);
+    bgFb = gl.createFramebuffer(); gl.bindFramebuffer(gl.FRAMEBUFFER, bgFb);
+    gl.framebufferTexture2D(gl.FRAMEBUFFER, gl.COLOR_ATTACHMENT0, gl.TEXTURE_2D, bt, 0);
+    bgInk = createInkWash(gl, B, {}); bgInk.draw(1e6, { target: bgFb });
+    bg = { tex: bt, x: 0, y: 0, w: B.size[0], h: B.size[1] };
+    gl.bindFramebuffer(gl.FRAMEBUFFER, fb);
+  }
+  const ink = createInkWash(gl, D, { look: job.look || {}, timing: job.timing || {}, bg });
+  ink.draw(job.t ?? 1e6, { debug: job.debug, target: fb });
+  if (bgInk) { bgInk.dispose(); gl.deleteTexture(bg.tex); gl.deleteFramebuffer(bgFb); }
+  gl.bindFramebuffer(gl.FRAMEBUFFER, fb);
+  const px = new Uint8Array(W * H * 4); gl.readPixels(0, 0, W, H, gl.RGBA, gl.UNSIGNED_BYTE, px);
+  gl.bindFramebuffer(gl.FRAMEBUFFER, null); ink.dispose(); gl.deleteTexture(tex); gl.deleteFramebuffer(fb);
+  let s = ''; for (let i = 0; i < px.length; i += 0x8000) s += String.fromCharCode.apply(null, px.subarray(i, i + 0x8000));
+  return { w: W, h: H, b64: btoa(s), stats: ink.stats };
+};
+window.ready = true;
+</script></body></html>

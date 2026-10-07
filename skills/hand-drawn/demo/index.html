@@ -1,0 +1,50 @@
+<!doctype html>
+<html><head><meta charset="utf-8"><title>Hand-drawn demo</title>
+<style>html,body{margin:0;background:#222}canvas{display:block;max-width:100vw;height:auto}</style></head>
+<body><canvas id="c"></canvas>
+<script type="module">
+// Demo scene: Schönbrunn Palace on toned paper. The pencil draws the structure (contours, then details), the hatching
+// builds up, the charcoal shading is laid in, then the muted washes bloom from the center and the glaze follows.
+// Everything comes from build/drawing.json (fitted vector data). Implements the Launch Studio window.__film contract.
+// Query: ?pencil=0 hides the pencil (gate stills), ?data=path overrides the drawing file.
+import { createInkWash } from '../engine/inkwash.js';
+import { createPencil } from '../engine/pencil.js';
+
+const q = new URLSearchParams(location.search);
+const canvas = document.getElementById('c');
+const video = { duration: 11, fps: 30, width: 0, height: 0 };
+window.__film = video;
+video.ready = (async () => {
+  const D = await (await fetch(q.get('data') || 'build/drawing.json')).json();
+  const [W, H] = D.size;
+  canvas.width = W; canvas.height = H; video.width = W; video.height = H;
+  const gl = canvas.getContext('webgl2', { antialias: false, alpha: false, preserveDrawingBuffer: true, stencil: true });
+  const dbg = gl.getExtension('WEBGL_debug_renderer_info');
+  video.renderer = dbg ? gl.getParameter(dbg.UNMASKED_RENDERER_WEBGL) : gl.getParameter(gl.RENDERER);
+  const ink = createInkWash(gl, D, {
+    timing: { lines: [0.5, 4.6], hatchStrokes: [4.0, 7.6], residual: [6.2, 8.4], wash: [7.9, 2.0], glaze: [8.8, 1.6], washSeed: [W * 0.5, H * 0.55] },
+    rest: [W * 0.9, H * 0.9],
+  });
+  const pencil = q.get('pencil') === '0' ? null : createPencil(gl, [W, H], { angle: -58, scale: W / 1280 });
+  // the hand moves smoothly over the area being drawn: the tip is averaged over the last fifth of a second
+  const tip = (t) => { let x = 0, y = 0, l = 0; const n = 10;
+    for (let i = 0; i < n; i++) { const p = ink.tip(t - i * 0.02); x += p.x; y += p.y; l += p.lift; }
+    return { x: x / n, y: y / n, lift: l / n }; };
+  video.stats = ink.stats;
+  video.seek = (t) => video.frame(t, 1);
+  video.frame = (t) => {
+    ink.draw(t);
+    if (pencil) pencil.draw(tip(t));
+    gl.finish();
+  };
+  // raw RGBA readback as base64 (rows bottom-up, as gl.readPixels returns them)
+  video.pixels = () => {
+    const px = new Uint8Array(W * H * 4);
+    gl.readPixels(0, 0, W, H, gl.RGBA, gl.UNSIGNED_BYTE, px);
+    let s = ''; for (let i = 0; i < px.length; i += 0x8000) s += String.fromCharCode.apply(null, px.subarray(i, i + 0x8000));
+    return btoa(s);
+  };
+  video.seek(video.duration);
+  return true;
+})();
+</script></body></html>
